@@ -24,12 +24,12 @@ sed -i "s/OpenWrt /0012h build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 
 # Install theme
 rm -rf package/lean/luci-theme-*
-# git clone -b 18.06 https://github.com/iboytech/luci-theme-edge.git package/lean/luci-theme-edge
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  
-git clone https://github.com/jerrykuku/luci-app-argon-config.git  package/lean/luci-theme-argon-config
+git clone -b 18.06 https://github.com/iboytech/luci-theme-edge.git package/lean/luci-theme-edge
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  
+# git clone https://github.com/jerrykuku/luci-app-argon-config.git  package/lean/luci-theme-argon-config
 
 # 5.修改默认主题
-sed -i ' s/luci-theme-bootstrap/luci-theme-argon/g ' feeds/luci/collections/luci/Makefile
+sed -i ' s/luci-theme-bootstrap/luci-theme-edge/g ' feeds/luci/collections/luci/Makefile
 
 # 7.修正连接数（by ベ七秒鱼ベ）
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
